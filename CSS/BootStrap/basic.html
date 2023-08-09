@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootStrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <!-- Container -->
+    <div class="container-md">
+        <!-- Container -->
+        <h2>Container</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facilis explicabo libero, minima odio qui
+            autem cupiditate asperiores quisquam pariatur? Iure odio possimus dicta eius deserunt error ad tempora
+            aspernatur fuga quas! Aspernatur delectus quam maiores eligendi, provident saepe quod! Ab sequi nihil nobis
+            doloribus, ducimus harum, cupiditate nostrum accusantium adipisci quia voluptatibus ad. Voluptates non dolor
+            illum optio. A voluptatibus temporibus ipsam magni officia dolor, explicabo deleniti architecto dolorem aut
+            repellat assumenda vero dolorum, iure ex est delectus nostrum repellendus qui mollitia facilis, ab quod
+            recusandae. Placeat exercitationem quis consequuntur nesciunt perspiciatis ab, molestiae nam tempora, modi,
+            quibusdam nihil asperiores beatae fugit consectetur porro sapiente hic! Magnam non natus iste delectus
+            facere unde ab quisquam! Minima quasi sapiente vero odit qui labore optio veritatis itaque incidunt odio?
+            Ipsam ullam optio voluptates omnis sapiente nam, nihil molestias repudiandae tempora fugit voluptatibus,
+            nesciunt possimus. Impedit neque, magnam asperiores alias ea consequatur aspernatur odit repellat tenetur
+            tempore, unde fugit eum. Tempore sint fugit asperiores quisquam dolore? Ut odit quisquam temporibus harum?
+            Quisquam dicta, explicabo voluptatem odit aliquam rem architecto, illum suscipit dolores quaerat ipsa quas
+            ea temporibus fugit fugiat voluptas possimus porro, harum earum id. Temporibus ducimus perspiciatis fugit
+            natus laborum doloribus tempora alias. Saepe aspernatur minus obcaecati vel ipsam! Praesentium placeat atque
+            in similique deserunt temporibus blanditiis repellendus quia, delectus quasi magnam ipsam saepe nostrum vel,
+            magni sed illum! Vitae rerum officiis aliquam ea dolor distinctio exercitationem hic, eum, maxime modi id
+            accusantium adipisci sed pariatur obcaecati iste accusamus maiores assumenda.</p>
+        <br>
+
+        <!-- Buttons -->
+        <h2>Buttons</h2>
+        <button type="button" class="btn btn-danger">Base class</button>
+        <button type="button" class="btn btn-outline-success">Base class</button>
+        <button type="button" class="btn btn-warning">Base class</button>
+        <br>
+        <br>
+
+        <!-- Badges -->
+        <h2>Badges</h2>
+        <button type="button" class="btn btn-primary rounded-pill">
+            Notifications <span class="badge text-bg-secondary rounded-pill">4</span>
+        </button>
+        <button type="button" class="btn btn-primary position-relative">
+            Inbox
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                99+
+                <span class="visually-hidden">unread messages</span>
+            </span>
+        </button>
+        <br>
+        <br>
+
+        <!-- Alerts -->
+        <div class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+        </div>
+        <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+        </div>
+        <div class="alert alert-warning" role="alert">
+            A simple warning alert—check it out!
+        </div>
+        <div id="liveAlertPlaceholder"></div>
+        <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert
+        </button>
+        <br>
+        <br>
+
+        <!-- Button Groups -->
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-danger">Left</button>
+            <button type="button" class="btn btn-warning">Middle</button>
+            <button type="button" class="btn btn-success">Right</button>
+        </div>
+        <br>
+        <br>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary">1</button>
+                <button type="button" class="btn btn-primary">2</button>
+                <button type="button" class="btn btn-primary">3</button>
+                <button type="button" class="btn btn-primary">4</button>
+            </div>
+            <div class="btn-group me-2" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-secondary">5</button>
+                <button type="button" class="btn btn-secondary">6</button>
+                <button type="button" class="btn btn-secondary">7</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+                <button type="button" class="btn btn-info">8</button>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <!-- Cards -->
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1691231862377-7e55d4e6a2c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <!-- Grids -->
+        <div class="container text-center">
+            <div class="grid gap-3">
+                <div class="row">
+                    <div class="col-3 bg-success border border-dark">
+                        Column
+                    </div>
+                    <div class="col-6 bg-success border border-dark">
+                        Column
+                    </div>
+                    <div class="col-3 bg-success border border-dark">
+                        Column
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 bg-success border border-dark">
+                        Column
+                    </div>
+                    <div class="col-8 bg-success border border-dark">
+                        Column
+                    </div>
+                    <div class="col-2 bg-success border border-dark">
+                        Column
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <script>
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const appendAlert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                `   <div>${message}</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper)
+        }
+
+        const alertTrigger = document.getElementById('liveAlertBtn')
+        if (alertTrigger) {
+            alertTrigger.addEventListener('click', () => {
+                appendAlert('Nice, you triggered this alert message!', 'success')
+            })
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
