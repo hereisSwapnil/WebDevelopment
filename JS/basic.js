@@ -83,3 +83,59 @@ for(let i = 0; i<fruits.length; i++){
 for(const fruit of fruits){
     console.log(fruit)
 }
+
+const sumArray = (numbers) => {
+    let result = 0;
+    for(const number of numbers){
+        result = result + number
+    }
+    return result
+}
+
+console.log(sumArray([1,3,5,7,9]))
+
+const letterFrequency = (sentence) => {
+    fr = {}
+    for(const char of sentence){
+        if(char in fr){
+            fr[char] = fr[char] + 1
+        }else{
+            fr[char] = 1
+        }
+    }
+    return fr
+}
+
+console.log(letterFrequency("hello"))
+
+const wordFrequency = (sentence) => {
+    words = sentence.split(" ")
+    return letterFrequency(words)
+}
+
+console.log(wordFrequency("hello my name is swamp"))
+
+// Higher Order Functions
+
+// map
+arr = [1,2,3,4,5]
+console.log(arr.map(number => number))
+
+const double = (arr) => {
+    return arr.map(number => number * 2)
+}
+
+console.log(double([1,2,3,4,5]))
+
+// filter
+let numbers = [1,2,3,4,5]
+console.log(numbers.filter(number => number > 3))
+
+// reduce
+// let actors = [
+//     {name: "John", netWorth: 20},
+//     {name: "Sunny", netWorth: 30},
+//     {name: "Bob", netWorth: 40},
+//     {name: "Jim", netWorth: 10}
+// ]
+// const result = actors.reduce((actors[a],actors[b]) => actors[a] + actors[b])
