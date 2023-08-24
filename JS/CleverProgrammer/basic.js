@@ -36,7 +36,7 @@ console.log(Math.ceil(3.1))
 // var 👉 not recommended to use
 // let 👉 used for local scope generally used 
 // const 👉 used if the value is not to be changed
- 
+
 // Conditional Operators
 // ==, !=, <, >, <=, >=, !==, ===
 
@@ -58,7 +58,7 @@ groceries.push("chocolate")
 
 console.log(groceries)
 
-console.log(groceries.slice(0,2))
+console.log(groceries.slice(0, 2))
 console.log(groceries.indexOf("apple"))
 console.log(groceries.length)
 
@@ -76,30 +76,30 @@ console.log(person)
 
 // Loops
 const fruits = ["banana", "apple", "pear", "orange"]
-for(let i = 0; i<fruits.length; i++){
+for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i])
 }
 
-for(const fruit of fruits){
+for (const fruit of fruits) {
     console.log(fruit)
 }
 
 const sumArray = (numbers) => {
     let result = 0;
-    for(const number of numbers){
+    for (const number of numbers) {
         result = result + number
     }
     return result
 }
 
-console.log(sumArray([1,3,5,7,9]))
+console.log(sumArray([1, 3, 5, 7, 9]))
 
 const letterFrequency = (sentence) => {
     fr = {}
-    for(const char of sentence){
-        if(char in fr){
+    for (const char of sentence) {
+        if (char in fr) {
             fr[char] = fr[char] + 1
-        }else{
+        } else {
             fr[char] = 1
         }
     }
@@ -118,17 +118,17 @@ console.log(wordFrequency("hello my name is swamp"))
 // Higher Order Functions
 
 // map
-arr = [1,2,3,4,5]
+arr = [1, 2, 3, 4, 5]
 console.log(arr.map(number => number))
 
 const double = (arr) => {
     return arr.map(number => number * 2)
 }
 
-console.log(double([1,2,3,4,5]))
+console.log(double([1, 2, 3, 4, 5]))
 
 // filter
-let numbers = [1,2,3,4,5]
+let numbers = [1, 2, 3, 4, 5]
 console.log(numbers.filter(number => number > 3))
 
 // reduce

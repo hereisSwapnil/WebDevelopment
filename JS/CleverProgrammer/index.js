@@ -108,26 +108,26 @@ const search_weather = () => {
         let min_temp_d = document.getElementById("temp_min")
         let max_temp_d = document.getElementById("temp_max")
         let city_d = document.getElementById("city")
-        city_d.innerText = "City: "+ data.name
-        min_temp_d.innerText = "Temp Min: "+ (main_b.temp_min - 273).toFixed(0) + "°C"
-        max_temp_d.innerText = "Temp Max: "+ (main_b.temp_max - 273).toFixed(0) + "°C"
+        city_d.innerText = "City: " + data.name
+        min_temp_d.innerText = "Temp Min: " + (main_b.temp_min - 273).toFixed(0) + "°C"
+        max_temp_d.innerText = "Temp Max: " + (main_b.temp_max - 273).toFixed(0) + "°C"
     })
 }
 
 // Bank
-class Bank{
-    constructor(balance){
+class Bank {
+    constructor(balance) {
         this.balance = balance
     }
-    withdraw(amount){
-        this.balance-=amount
+    withdraw(amount) {
+        this.balance -= amount
         this.update_balance()
     }
-    deposit(amount){
-        this.balance+=amount
+    deposit(amount) {
+        this.balance += amount
         this.update_balance()
     }
-    update_balance(){
+    update_balance() {
         document.getElementById("bank_balance").innerText = "Balance: " + Bank_1.balance
     }
 }
