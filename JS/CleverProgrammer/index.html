@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!-- Random Button Section -->
     <h1>Random Number</h1>
@@ -13,7 +15,9 @@
     <br>
     <hr>
     <!-- All Heading tags changer -->
-    <div id="heading_tags"><h1>This is Heading 1</h1></div>
+    <div id="heading_tags">
+        <h1>This is Heading 1</h1>
+    </div>
     <button class="changer_btn" onclick="change_heading_func()">Change Heading</button>
     <hr>
     <!-- Rock Paper Scissors -->
@@ -28,7 +32,29 @@
         <button onclick="click_scissor()">Scissor</button>
     </div>
     <hr>
-    
+    <!-- Random Dog Image -->
+    <h2>Random Dog Image Generator</h2>
+    <img src="" alt="" id="rnd_dog" style="height: 100px;">
+    <br>
+    <button class="rnd_dog_btn" onclick="rnd_dog_func()">Generate</button>
+    <hr>
+    <!-- Weather App -->
+    <input type="text" name="" id="weather_input">
+    <button onclick="search_weather()">Search</button>
+    <div class="weather_r">
+        <div id="city">City: </div>
+        <div id="temp_min">Temp Min: </div>
+        <div id="temp_max">Temp Max: </div>
+    </div>
+    <hr>
+    <!-- Bank Using Classes -->
+    <input type="text" id="bank_input">
+    <div class="w_d_btn" style="display: flex;">
+        <button onclick="deposit_m()">+ Deposit</button>
+        <button onclick="withdraw_m()">- Withdraw</button>
+    </div>
+    <div id="bank_balance">Balance: </div>
     <script src="index.js"></script>
 </body>
+
 </html>
