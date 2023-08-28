@@ -144,3 +144,17 @@ const withdraw_m = () => {
 
 Bank_1 = new Bank(1200)
 document.getElementById("bank_balance").innerText = "Balance: " + Bank_1.balance
+
+// Traffic Light
+const red_func = () => {
+    let t_text = document.getElementById("r_t")
+    t_text.innerText = "Stop 🛑"
+}
+const yellow_func = () => {
+    let t_text = document.getElementById("r_t")
+    t_text.innerText = "Wait ✋"
+}
+const green_func = () => {
+    let t_text = document.getElementById("r_t")
+    t_text.innerText = "GO 🏎️"
+}
