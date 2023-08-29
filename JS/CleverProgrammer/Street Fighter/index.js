@@ -16,6 +16,10 @@ function closeOverlay() {
     const overlay = document.getElementById('gameOverOverlay');
     overlay.style.display = 'none';
     overlay.classList.remove('enlarge');
+    player1.score = 0
+    player1.health = 100
+    player2.score = 0
+    player2.health = 100
     p1_h.innerText = 100
     p2_h.innerText = 100
     p1_s.innerText = 0
