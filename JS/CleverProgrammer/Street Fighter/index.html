@@ -1,0 +1,68 @@
+<!-- https://media.tenor.com/bzjVKW_HyoQAAAAC/ken-akuma.gif -->
+<!-- https://giffiles.alphacoders.com/131/13192.gif -->
+<!-- https://upload.wikimedia.org/wikipedia/en/e/e9/Street_Fighter_Logo.png -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Fighter</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="/JS/CleverProgrammer/Street Fighter/index.js"></script>
+</head>
+
+<body>
+    <button class="controls-button">Show Controls</button>
+    <div class="controls">
+        <!-- <h2>Game Controls</h2> -->
+        <h3>Player 1</h3>
+        <p>Attack <span>Q</span></p>
+        <p>Heal <span>A</span></p>
+        <h3>Player 2</h3>
+        <p>Attack <span>P</span></p>
+        <p>Heal <span>L</span></p>
+    </div>
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e9/Street_Fighter_Logo.png" alt="">
+    </div>
+    <div class="game-over-overlay" id="gameOverOverlay">
+        <div class="game-over-text">Player 1 Won!</div>
+        <button class="retry-button" onclick="closeOverlay()">Retry</button>
+    </div>
+    <div class="game">
+        <div class="player1">
+            <div class="score">
+                <h2>Score</h2>
+                <h3>0</h3>
+            </div>
+            <div class="player">
+                <img src="/JS/CleverProgrammer/Street Fighter/images/13192.gif" alt="">
+            </div>
+            <div class="health">
+                <img src="https://i.postimg.cc/pdVvkXJ4/image-removebg-preview-8.png" alt="">
+                <h3>100</h3>
+            </div>
+        </div>
+        <div class="player2">
+            <div class="score">
+                <h2>Score</h2>
+                <h3>0</h3>
+            </div>
+            <div class="player">
+                <img src="/JS/CleverProgrammer/Street Fighter/images/output-onlinegiftools.gif" alt="">
+            </div>
+            <div class="health">
+                <img src="https://i.postimg.cc/pdVvkXJ4/image-removebg-preview-8.png" alt="">
+                <h3>100</h3>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Made with <span>❤️</span> by <a href="https://github.com/Swapnil-Singh-99"
+                target="_blank">@Swapnil-Singh-99</a></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("/JS/CleverProgrammer/Street Fighter/images/Dark\ Blue\ Simple\ Dark\ Tech\ and\ Gaming\ Bio-Link\ Website.png");
+    background-size: cover;
+    color: #ffffff;
+    height: 100vh;
+}
+
+.logo {
+    justify-content: center;
+    display: flex;
+}
+
+.game {
+    width: 80vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    margin-top: 30px;
+    font-family: 'Nerko One', cursive;
+}
+
+.player1,
+.player2 {
+    text-align: center;
+}
+
+.score {
+    margin-bottom: 20px;
+}
+
+.score h2 {
+    font-size: 48px;
+}
+
+.score h3,
+.health h3 {
+    font-size: 36px;
+}
+
+.health {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.health img {
+    width: 40px;
+}
+
+.controls-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #FF6C05;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Nerko One', cursive;
+    font-size: 25px;
+}
+
+/* Style for the controls */
+.controls {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background-color: rgb(0 0 0 / 40%);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    font-family: 'Nerko One', cursive;
+}
+
+/* Show controls when button is hovered */
+.controls-button:hover+.controls {
+    display: block;
+}
+
+.controls h3 {
+    font-size: 30px;
+}
+
+.controls p {
+    padding-left: 102px;
+    font-size: 22px;
+}
+
+.controls p span {
+    color: #FFD405;
+}
+
+.footer p a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer p a:hover {
+    color: #FF6C05;
+}
+
+.footer {
+    background-color: rgb(0 0 0 / 40%);;
+    width: 100vw;
+    margin-top: 25px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.game-over-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+  }
+
+  /* Animation for enlarging the overlay */
+  .game-over-overlay.enlarge {
+    animation: enlargeOverlay 0.5s forwards;
+  }
+
+  /* Keyframes for the animation */
+  @keyframes enlargeOverlay {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Style for the text */
+  .game-over-text {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Style for the retry button */
+  .retry-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
