@@ -40,4 +40,4 @@ let id1 = setInterval(() => {
     console.log("hello");
 }, 1000)
 // stops the set interval multiple calling
-clearInterval(id1)>
+clearInterval(id1)
