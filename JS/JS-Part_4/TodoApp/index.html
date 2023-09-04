@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://mdbootstrap.com/docs/standard/extended/to-do-list/?#:~:text=To%20Do%20List%20Example%20%234 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/JS/JS-Part_4/TodoApp/index.js"></script>
+    <script src="https://kit.fontawesome.com/4c6ac41fce.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input">
+            <input type="text" id="todo_input" placeholder="New task...">
+            <button onclick="add_todo()">ADD</button>
+        </div>
+        <div class="output">
+            <div class="navigation">
+                <div class="all nav act">ALL</div>
+                <div class="active nav">ACTIVE</div>
+                <div class="completed nav">COMPLETED</div>
+            </div>
+            <div class="list" id="list"></div>
+        </div>
+    </div>
+</body>
+
+</html>

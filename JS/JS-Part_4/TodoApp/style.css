@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80vw;
+    height: 70vh;
+    background-color: #ffffff;
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 50px;
+}
+
+body {
+    background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+        linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+        linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+        radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+        radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+    background-blend-mode: screen, color-dodge, overlay, difference, normal;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container .input input {
+    appearance: none;
+    border: 1px solid #adb5bd;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: max-content;
+    border-radius: 8px;
+    line-height: 40px;
+    width: -webkit-fill-available;
+}
+
+.container .input {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.container .input button {
+    appearance: none;
+    width: 90px;
+    border: none;
+    background-color: #54b4d3;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.navigation {
+    display: flex;
+    height: 40px;
+    margin-top: 40px;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 40px;
+}
+
+.nav {
+    padding: 20px 25px;
+    align-self: center;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.act {
+    border-bottom: 2px solid #54b4d3;
+}
+
+.nav:hover {
+    background-color: #eaeaea;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
+    height: 53vh;
+}
+
+.list_item {
+    display: flex;
+    background-color: #eaeaea;
+    border-radius: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    align-items: center;
+    gap: 30px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+.list_text {
+    display: flex;
+    gap: 30px;
+}
+
+.list_item input {
+    transform: scale(1.5);
+}
+
+.fa-trash {
+    margin-left: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
