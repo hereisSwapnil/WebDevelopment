@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 { 
+    text-align: center;
+    margin: 30px;
+}
+
+p {
+    text-align: center;
+}
+
+.keyClicks {
+    width: 700px;
+    height: 600px;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin: 0 auto;
+    margin-top: 30px;
+    overflow-y: scroll;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.keyClicks::-webkit-scrollbar {
+    display: none;
+}
