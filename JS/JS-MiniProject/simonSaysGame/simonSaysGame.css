@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+}
+
+.dark-cyan {
+    background-color: #048A81;
+}
+
+.sky-blue {
+    background-color: #54c6eb;
+}
+
+.cool-grey {
+    background-color: #8A89C0;
+}
+
+.rosy-brown {
+    background-color: #CDA2AB;
+}
+
+.gameFlash {
+    background-color: #ffffff;
+}
+
+.userFlash {
+    background-color: green;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    margin: 2.5rem;
+    border: 5px solid black;
+    border-radius: 12%;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 200px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
