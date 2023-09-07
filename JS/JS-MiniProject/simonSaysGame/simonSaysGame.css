@@ -39,6 +39,7 @@ p {
     font-size: 25px;
     font-weight: 600;
     line-height: 200px;
+    user-select: none;
 }
 
 .btn-container {
