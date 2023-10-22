@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#172A32]">
+    <h1 class="text-center my-5 text-[#FCF4DF] text-4xl">Get type - Login</h1>
+    <section class="bg-[#172A32]">
+        <div class="flex justify-center">
+            <main class="flex items-center justify-center py-8 sm:px-12 lg:col-span-7 lg:px-16  xl:col-span-6">
+                <div class="max-w-xl lg:max-w-3xl">
+
+                    <form class="mt-8 grid grid-cols-6 gap-6" action="http://localhost:3000/register" method="get">
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="FirstName" class="block text-lg font-medium text-[#FCF4DF]">
+                                First Name
+                            </label>
+
+                            <input type="text" id="FirstName" name="first_name"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="LastName" class="block text-lg font-medium text-[#FCF4DF]">
+                                Last Name
+                            </label>
+
+                            <input type="text" id="LastName" name="last_name"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="Email" class="block text-lg font-medium text-[#FCF4DF]">
+                                Email
+                            </label>
+
+                            <input type="email" id="Email" name="email"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="Password" class="block text-lg font-medium text-[#FCF4DF]">
+                                Password
+                            </label>
+
+                            <input type="password" id="Password" name="password"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="PasswordConfirmation" class="block text-lg font-medium text-[#FCF4DF]">
+                                Password Confirmation
+                            </label>
+
+                            <input type="password" id="PasswordConfirmation" name="password_confirmation"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="MarketingAccept" class="flex gap-4">
+                                <input type="checkbox" id="MarketingAccept" name="marketing_accept"
+                                    class="h-10 px-2 text-[#212529] w-5 rounded-md border-gray-200 bg-white shadow-sm" />
+
+                                <span class="text-lg text-[#FCF4DF]">
+                                    I want to receive emails about events, product updates and
+                                    company announcements.
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p class="text-lg text-[#FCF4DF]">
+                                By creating an account, you agree to our
+                                <a href="#" class="hover:text-[#495057] underline">
+                                    terms and conditions
+                                </a>
+                                and
+                                <a href="#" class="hover:text-[#495057] underline">privacy policy</a>.
+                            </p>
+                        </div>
+
+                        <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+                            <button
+                                class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+                                Create an account
+                            </button>
+
+                            <p class="mt-4 text-lg text-[#FCF4DF] sm:mt-0">
+                                Already have an account?
+                                <a href="#" class="hover:text-[#495057] underline">Log in</a>.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </section>
+    <h1 class="text-center my-10 text-[#FCF4DF] text-4xl">Post type - Login</h1>
+    <section class="bg-[#172A32]">
+        <div class="flex justify-center">
+            <main class="flex items-center justify-center py-8 sm:px-12 lg:col-span-7 lg:px-16  xl:col-span-6">
+                <div class="max-w-xl lg:max-w-3xl">
+
+                    <form class="mt-8 grid grid-cols-6 gap-6" action="http://localhost:3000/register" method="post">
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="FirstName" class="block text-lg font-medium text-[#FCF4DF]">
+                                First Name
+                            </label>
+
+                            <input type="text" id="FirstName" name="first_name"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="LastName" class="block text-lg font-medium text-[#FCF4DF]">
+                                Last Name
+                            </label>
+
+                            <input type="text" id="LastName" name="last_name"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="Email" class="block text-lg font-medium text-[#FCF4DF]">
+                                Email
+                            </label>
+
+                            <input type="email" id="Email" name="email"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="Password" class="block text-lg font-medium text-[#FCF4DF]">
+                                Password
+                            </label>
+
+                            <input type="password" id="Password" name="password"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="PasswordConfirmation" class="block text-lg font-medium text-[#FCF4DF]">
+                                Password Confirmation
+                            </label>
+
+                            <input type="password" id="PasswordConfirmation" name="password_confirmation"
+                                class="h-10 px-2 text-[#212529] mt-1 w-full rounded-md border-gray-200 bg-white text-lg  shadow-sm" />
+                        </div>
+
+                        <div class="col-span-6">
+                            <label for="MarketingAccept" class="flex gap-4">
+                                <input type="checkbox" id="MarketingAccept" name="marketing_accept"
+                                    class="h-10 px-2 text-[#212529] w-5 rounded-md border-gray-200 bg-white shadow-sm" />
+
+                                <span class="text-lg text-[#FCF4DF]">
+                                    I want to receive emails about events, product updates and
+                                    company announcements.
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p class="text-lg text-[#FCF4DF]">
+                                By creating an account, you agree to our
+                                <a href="#" class="hover:text-[#495057] underline">
+                                    terms and conditions
+                                </a>
+                                and
+                                <a href="#" class="hover:text-[#495057] underline">privacy policy</a>.
+                            </p>
+                        </div>
+
+                        <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+                            <button
+                                class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-lg font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+                                Create an account
+                            </button>
+
+                            <p class="mt-4 text-lg text-[#FCF4DF] sm:mt-0">
+                                Already have an account?
+                                <a href="#" class="hover:text-[#495057] underline">Log in</a>.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </section>
+</body>
+
+</html>

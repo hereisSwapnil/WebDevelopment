@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#172A32]">
+    <h1 class="text-center my-5 text-[#FCF4DF] text-4xl">Details</h1>
+    <section class="bg-[#172A32]">
+        <div class="flex justify-center text-[#FCF4DF]">
+            First Name: <%= data["first_name"] %><br/>
+            Last Name: <%= data["last_name"] %><br/>
+            Email : <%= data["email"] %><br/>
+            Password : <%= data["password"] %><br/>
+            Confirm Password : <%= data["password_confirmation"] %><br/>
+            Marketing : <%= data["marketing_accept"] %><br/>
+        </div>
+    </section>
+</body>
+
+</html>
