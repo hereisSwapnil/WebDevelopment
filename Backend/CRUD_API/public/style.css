@@ -1,0 +1,85 @@
+h1 {
+    color: maroon;
+    margin: 20px;
+}
+
+.post {
+    background-color: rgba(255, 127, 80, 0.473);
+    margin: 20px;
+    padding: 20px;
+    color: black;
+    border-radius: 25px;
+    height: auto;
+}
+
+.username {
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.controls a {
+    text-decoration: none;
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.445);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.controls a:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.addPost {
+    text-decoration: none;
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.445);
+    padding: 5px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.addPost:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+button {
+    font-size: xx-small;
+}
+
+h2,
+p,
+textarea,
+form,
+button {
+    margin: 20px;
+}
+
+button {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.445);
+    padding: 5px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.deleteForm {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
