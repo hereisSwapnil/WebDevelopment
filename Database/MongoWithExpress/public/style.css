@@ -1,0 +1,24 @@
+body {
+  background-color: #e9edc9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat {
+  background-color: #588157;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin: 10px 30px;
+  width: 40vw;
+  height: auto;
+}
+
+p {
+  color: #e9edc9;
+}
+
+.msg {
+    float: right;
+    color: #e5e5e5;
+}
