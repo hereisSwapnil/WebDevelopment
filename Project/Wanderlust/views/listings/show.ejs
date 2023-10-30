@@ -1,0 +1,32 @@
+<% layout('./layouts/boilerplate') -%>
+
+    <body>
+        <div class="card mt-5">
+            <img src="<%= listingData.image %>" class="card-img-top" alt="...">
+            <div class="card-body mb-3">
+                <h5 class="card-title">
+                    <%= listingData.title %>
+                </h5>
+                <p class="card-text">
+                    <%= listingData.description %>
+                </p>
+                <p class="card-text"><b>Price:</b>
+                    <%= listingData.price %>
+                </p>
+                <p class="card-text"><b>Location:</b>
+                    <%= listingData.location %>
+                </p>
+                <p class="card-text"><b>Country:</b>
+                    <%= listingData.country %>
+                </p>
+            </div>
+            <div class="controls ml-5">
+                <form action="/listings/<%= listingData.id %>/edit" method="get">
+                    <button type="submit" class="btn-edit btn-add btn btn-dark px-4">Edit</button>
+                </form>
+                <form action="/listings/<%= listingData.id %>?_method=DELETE" method="post">
+                    <button type="submit" class="btn-delete btn-add btn btn-dark px-4">Delete</button>
+                </form>
+            </div>
+        </div>
+    </body>

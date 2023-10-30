@@ -1,0 +1,81 @@
+.container {
+  flex: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh !important;
+}
+
+nav {
+  height: 5rem !important;
+  background-color: #f5f5f5;
+}
+
+.fa-compass {
+  font-size: 1.7rem !important;
+  color: #f7284e;
+}
+
+.nav-link {
+  color: #0d1321;
+}
+
+footer {
+  background-color: #f5f5f5;
+  flex-direction: column !important;
+  text-align: center !important;
+}
+
+.fab {
+  font-size: 1.7rem !important;
+  color: #0d1321;
+}
+
+.btn-add {
+  background-color: #f7284e;
+  border: none !important;
+}
+
+.new-add-section {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+}
+
+.a-cards {
+  text-decoration: none;
+}
+
+.card {
+  border: none !important;
+}
+
+.card img {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  height: 25rem !important;
+}
+
+.listing-section {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  row-gap: 4rem !important;
+}
+
+.controls {
+  display: flex;
+  gap: 2rem !important;
+  margin-left: 1rem !important;
+}
+
+.btn-edit {
+  background-color: #f7284e;
+  border: none !important;
+}
+
+.btn-delete {
+  background-color: #0d1321;
+  border: none !important;
+}

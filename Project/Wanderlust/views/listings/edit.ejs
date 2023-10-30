@@ -1,0 +1,40 @@
+<% layout('./layouts/boilerplate') -%>
+
+    <body>
+        <div class="new-add-section row col-8 mx-auto">
+            <form action="/listings/<%= listingData.id %>?_method=PUT" method="post">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" placeholder="Private Island Retreat" name="title"
+                        value="<%= listingData.title %>">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description"
+                        placeholder="Have an entire island to yourself for a truly exclusive and unforgettable vacation experience."
+                        type="text" class="form-control" rows="5"><%= listingData.description %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" class="form-control" placeholder="image url" name="image"
+                        value="<%= listingData.image %>">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" placeholder="₹29,999" name="price"
+                        value="<%= listingData.price %>">
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" placeholder="Fiji" name="location"
+                        value="<%= listingData.location %>">
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" placeholder="Fiji" name="country"
+                        value="<%= listingData.country %>">
+                </div>
+                <button type="submit" class="btn-add btn btn-dark">Save</button>
+            </form>
+        </div>
+    </body>

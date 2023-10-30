@@ -1,0 +1,25 @@
+<% layout('./layouts/boilerplate') -%>
+    <!-- row-cols-1 row-cols-md-2 g-4 -->
+
+    <body>
+        <div class="listing-section row row-cols-lg-3 row-cols-md-2">
+            <% for( let listing of allListings ) { %>
+                <a href="/listings/<%= listing.id %>" class="a-cards">
+                    <div class="col">
+                        <div class="card">
+                            <img src="<%= listing.image %>" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= listing.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= listing.description %>
+                                </p>
+                                <p class="card-text">₹<%= listing.price %>/day</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+    </body>

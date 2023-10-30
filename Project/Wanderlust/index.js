@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override');
 const path = require('path');
+const ejsMate = require('ejs-mate');
 
 // inporting models
 const listing = require('./models/listing')
@@ -12,6 +13,8 @@ const app = express()
 
 // setting ejs view engine
 app.set('view engine', 'ejs')
+// setting up ejs mate
+app.engine('ejs', ejsMate)
 // setting views and public paths
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -37,12 +40,59 @@ app.get('/', (req, res) => {
     res.send("Hey the server is working well!");
 })
 
-app.get('listings', async (req, res) => {
-    let listingData = await listing.find()
-        .then((res) => {
-            console.log("Listing data fetched successfully");
-        }).catch(err => console.log(err));
-    res.render('listings', { data: listingData });
+app.get('/listings', async (req, res) => {
+    let allListingData = await listing.find()
+    console.log("Listing data fetched successfully");
+    // console.log(allListingData);
+    res.render('./listings/index', { allListings: allListingData });
+})
+
+app.get('/listings/new', (req, res) => {
+    res.render('./listings/new')
+})
+
+app.get('/listings/:id/edit', async (req, res) => {
+    let listingData = await listing.findById(req.params.id)
+    console.log("Listing data by id fetched successfully");
+    // console.log(listingData);
+    res.render('./listings/edit', { listingData: listingData });
+})
+
+app.get('/listings/:id', async (req, res) => {
+    let listingData = await listing.findById(req.params.id)
+    console.log("Listing data by id fetched successfully");
+    // console.log(allListingData);
+    res.render('./listings/show', { listingData: listingData });
+})
+
+// Post Requests
+
+app.post('/listings', async (req, res) => {
+    let { title, description, image, price, location, country } = req.body;
+    let newListing = new listing(
+        { title, description, image, price, location, country }
+    );
+    newListing.save();
+    console.log("New listing data saved successfully");
+    // console.log(newListing);
+    res.redirect('/listings');
+})
+
+// PUT Requests
+
+app.put('/listings/:id', async (req, res) => {
+    let { title, description, image, price, location, country } = req.body;
+    await listing.findByIdAndUpdate(req.params.id, { title, description, image, price, location, country });
+    console.log("Listing data updated successfully");
+    res.redirect('/listings');
+})
+
+// DELETE Requests
+
+app.delete('/listings/:id', async (req, res) => {
+    await listing.findByIdAndDelete(req.params.id);
+    console.log("Listing data deleted successfully");
+    res.redirect('/listings');
 })
 
 // app.get('/testListing', async (req, res) => {
