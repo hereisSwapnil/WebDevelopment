@@ -10,6 +10,9 @@ const app = express();
 // Port on which server will listen
 const port = 8080;
 
+// Importing custom error handling function
+const expressError = require("./expressError");
+
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, "public")));
@@ -30,24 +33,48 @@ async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 }
 
+function wrapAsync(fn) {
+    return function (req, res, next) {
+        fn(req, res, next).catch(err => next(err));
+    }
+}
+
 // Basic '/' route
-app.get('/', async (req, res) => {
+app.get('/', wrapAsync(async (req, res) => {
     let chats = await Chat.find();
     // console.log(chats);
     res.render('index', { chats });
-})
+}));
 
-app.get('/chat/new', async (req, res) => {
+app.get('/chat/new', wrapAsync(async (req, res) => {
     res.render('new');
-})
+}));
 
-app.get('/chat/:id/edit', async (req, res) => {
+// Try Catch Method to handle errors
+// app.get('/chat/:id/edit', (req, res, next) => {
+//     const id = req.params.id;
+//     Chat.findById(id)
+//         .then(chat => {
+//             if (chat === null) {
+//                 return next(new expressError(500, 'Chat not Found'));
+//             }
+//             res.render('edit', { chat });
+//         })
+//         .catch(err => {
+//             next(err);
+//         });
+// });
+
+app.get('/chat/:id/edit', wrapAsync(async (req, res, next) => {
     let id = req.params.id;
     let chat = await Chat.findById(id);
+    if (!chat) {
+        return next(new expressError(500, "Chat not Found"));
+    }
     res.render('edit', { chat });
-})
+}));
 
-app.post('/chat', async (req, res) => {
+app.post('/chat', wrapAsync(async (req, res) => {
     let { from, msg, to } = req.body;
     const chat = new Chat({
         from: from,
@@ -55,14 +82,12 @@ app.post('/chat', async (req, res) => {
         to: to,
         createdAt: new Date()
     });
-    chat.save()
+    await chat.save()
         .then((res) => {
             console.log("Chat created successfully");
-        }).catch((err) => {
-            console.error("Error creating chat: ", err);
-        });
+        })
     res.redirect('/');
-})
+}));
 
 app.put('/chat/:id', (req, res) => {
     let id = req.params.id;
@@ -88,6 +113,20 @@ app.delete('/chat/:id', (req, res) => {
             console.log("Error deleting chat: ", err);
         })
     res.redirect('/');
+})
+
+app.use((err, req, res, next) => {
+    console.log("\n----Error----");
+    console.log(err.name);
+    console.log(err.message);
+    console.log("----Error----\n");
+    next();
+})
+
+// Error handling Middleware
+app.use((err, req, res, next) => {
+    let { status = 500, message = "Some Error Occured" } = err;
+    res.status(err).send(message);
 })
 
 // app listening on port 8080
