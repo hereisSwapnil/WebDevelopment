@@ -2,7 +2,7 @@
 
     <body>
         <div class="new-add-section row col-8 mx-auto">
-            <form action="/listings" method="post">
+            <form action="/listings" method="post" novalidate class="needs-validation">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" placeholder="Private Island Retreat" name="title" required>
@@ -14,7 +14,7 @@
                     <label for="description" class="form-label">Description</label>
                     <textarea name="description"
                         placeholder="Have an entire island to yourself for a truly exclusive and unforgettable vacation experience."
-                        type="text" class="form-control" rows="5"></textarea>
+                        type="text" class="form-control" rows="5" required></textarea>
                     <div class="invalid-feedback">
                         Enter enter a short description.
                     </div>
@@ -23,12 +23,12 @@
                     <label for="image" class="form-label">Image</label>
                     <input type="text" class="form-control" placeholder="image url" name="image" required>
                     <div class="invalid-feedback">
-                        Enter enter image URL.
+                        Enter enter image URL. 
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" placeholder="₹29,999" name="price" required>
+                    <input type="text" class="form-control" placeholder="₹29,999" name="price" required>
                     <div class="invalid-feedback">
                         Enter enter price/day.
                     </div>

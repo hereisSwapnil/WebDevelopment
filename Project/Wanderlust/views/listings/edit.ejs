@@ -2,37 +2,56 @@
 
     <body>
         <div class="new-add-section row col-8 mx-auto">
-            <form action="/listings/<%= listingData.id %>?_method=PUT" method="post">
+            <form action="/listings/<%= listingData.id %>?_method=PUT" method="post" novalidate
+                class="needs-validation">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" placeholder="Private Island Retreat" name="title"
-                        value="<%= listingData.title %>">
+                        value="<%= listingData.title %>" required>
+                    <div class="invalid-feedback">
+                        Enter enter title.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea name="description"
                         placeholder="Have an entire island to yourself for a truly exclusive and unforgettable vacation experience."
-                        type="text" class="form-control" rows="5"><%= listingData.description %></textarea>
+                        type="text" class="form-control" rows="5" required><%= listingData.description %></textarea>
+                    <div class="invalid-feedback">
+                        Enter enter a short description.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input type="text" class="form-control" placeholder="image url" name="image"
-                        value="<%= listingData.image %>">
+                        value="<%= listingData.image %>" required>
+                    <div class="invalid-feedback">
+                        Enter enter image URL.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" placeholder="₹29,999" name="price"
-                        value="<%= listingData.price %>">
+                    <input type="text" class="form-control" placeholder="₹29,999" name="price"
+                        value="<%= listingData.price %>" required>
+                    <div class="invalid-feedback">
+                        Enter enter price/day.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
                     <input type="text" class="form-control" placeholder="Fiji" name="location"
-                        value="<%= listingData.location %>">
+                        value="<%= listingData.location %>" required>
+                    <div class="invalid-feedback">
+                        Enter enter location.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="country" class="form-label">Country</label>
                     <input type="text" class="form-control" placeholder="Fiji" name="country"
-                        value="<%= listingData.country %>">
+                        value="<%= listingData.country %>" required>
+                    <div class="invalid-feedback">
+                        Enter enter country.
+                    </div>
                 </div>
                 <button type="submit" class="btn-add btn btn-dark">Save</button>
             </form>
