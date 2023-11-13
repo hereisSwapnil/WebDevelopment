@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router({mergeParams: true});
+const router = express.Router({ mergeParams: true });
 // exporting wrapAsync function
 const wrapAsync = require("../utils/wrapAsync");
 // JOI Validation
@@ -37,6 +37,7 @@ router.post("/", validateReview, wrapAsync(async (req, res, next) => {
     await newReview.save();
     await listing_.save();
     console.log("New review saved successfully");
+    req.flash("success", "New Review created")
     res.redirect("/listings/" + req.params.id);
 }))
 
@@ -47,6 +48,7 @@ router.delete("/:review_id", wrapAsync(async (req, res) => {
     let listingData = await listing.findById(id);
     listingData.reviews = listingData.reviews.filter(review => review != review_id);
     await listingData.save();
+    req.flash("success", "Review deleted")
     res.redirect(`/listings/${id}`);
 }))
 

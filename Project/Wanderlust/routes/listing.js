@@ -49,6 +49,10 @@ router.get(
     "/:id/edit",
     wrapAsync(async (req, res) => {
         let listingData = await listing.findById(req.params.id);
+        if (!listingData) {
+            req.flash("error", "The listing you requested does not exit!")
+            res.redirect("/listings")
+        }
         console.log("Listing data by id fetched successfully");
         // console.log(listingData);
         res.render("./listings/edit", { listingData: listingData });
@@ -61,7 +65,10 @@ router.get(
     wrapAsync(async (req, res) => {
         let listingData = await listing.findById(req.params.id).populate("reviews");
         console.log("Listing data by id fetched successfully");
-        // console.log(allListingData);
+        if (!listingData) {
+            req.flash("error", "The listing you requested does not exit!")
+            res.redirect("/listings")
+        }
         res.render("./listings/show", { listingData: listingData });
     })
 );
@@ -102,6 +109,7 @@ router.put(
             country,
         });
         console.log("Listing data updated successfully");
+        req.flash("success", "Listing updated")
         res.redirect("/listings");
     })
 );
@@ -117,6 +125,7 @@ router.delete(
         })
         await listing.findByIdAndDelete(id);
         console.log("Listing data deleted successfully");
+        req.flash("success", "Listing deleted")
         res.redirect("/listings");
     })
 );
