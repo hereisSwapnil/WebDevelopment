@@ -5,11 +5,15 @@ const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const session = require('express-session')
-var flash = require('connect-flash');
+const flash = require('connect-flash');
+const passport = require('passport');
+const LocalStrategy = require('passport-local')
+const User = require('./models/user.js')
 
 // importing router
-const listings = require('./routes/listing.js');
-const reviews = require('./routes/review.js')
+const listingsRouter = require('./routes/listing.js');
+const reviewsRouter = require('./routes/review.js')
+const usersRouter = require('./routes/user.js')
 
 // exporting expressError class
 const expressError = require("./utils/expressError");
@@ -28,6 +32,16 @@ app.use(session({
 // using flash
 app.use(flash());
 
+// initializing passport
+app.use(passport.initialize());
+app.use(passport.session());
+// passport middleware
+passport.use(new LocalStrategy(User.authenticate()));
+
+// use static serialize and deserialize of model for passport session support
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // setting ejs view engine
 app.set("view engine", "ejs");
 // setting up ejs mate
@@ -44,12 +58,14 @@ app.use(methodOverride("_method"));
 app.use((req, res, next) => {
   res.locals.success = req.flash("success")
   res.locals.error = req.flash("error")
+  res.locals.currUser = req.user
   next();
 })
 
 // Setting up routes
-app.use("/listings", listings)
-app.use("/listings/:id/reviews", reviews)
+app.use("/listings", listingsRouter)
+app.use("/listings/:id/reviews", reviewsRouter)
+app.use("/", usersRouter)
 
 // Connecting MongoDB
 main()

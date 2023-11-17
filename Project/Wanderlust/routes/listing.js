@@ -10,6 +10,9 @@ const expressError = require("../utils/expressError");
 // inporting models
 const listing = require("../models/listing");
 
+// isLoggedIn middleware
+const { isLoggedIn } = require('../middleware')
+
 // validateListing function
 const validateListing = (req, res, next) => {
     const { title, description, image, price, location, country } = req.body;
@@ -34,19 +37,20 @@ router.get(
     wrapAsync(async (req, res) => {
         let allListingData = await listing.find();
         console.log("Listing data fetched successfully");
+        console.log("isLoggedIn: " + req.isAuthenticated());
         // console.log(allListingData);
         res.render("./listings/index", { allListings: allListingData });
     })
 );
 
 // GET: listings new add route
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
     res.render("./listings/new");
 });
 
 // GET: listings edit specific route
 router.get(
-    "/:id/edit",
+    "/:id/edit", isLoggedIn,
     wrapAsync(async (req, res) => {
         let listingData = await listing.findById(req.params.id);
         if (!listingData) {
@@ -61,7 +65,7 @@ router.get(
 
 // GET: listings get specific route
 router.get(
-    "/:id",
+    "/:id", isLoggedIn,
     wrapAsync(async (req, res) => {
         let listingData = await listing.findById(req.params.id).populate("reviews");
         console.log("Listing data by id fetched successfully");
@@ -75,7 +79,7 @@ router.get(
 
 // POST: Add new listings route
 router.post(
-    "/",
+    "/", isLoggedIn,
     validateListing,
     wrapAsync(async (req, res, next) => {
         const { title, description, image, price, location, country } = req.body;
@@ -96,7 +100,7 @@ router.post(
 
 // PUT: edit specific listings
 router.put(
-    "/:id",
+    "/:id", isLoggedIn,
     validateListing,
     wrapAsync(async (req, res) => {
         let { title, description, image, price, location, country } = req.body;
@@ -116,7 +120,7 @@ router.put(
 
 // DELETE: delete specific listings
 router.delete(
-    "/:id",
+    "/:id", isLoggedIn,
     wrapAsync(async (req, res) => {
         const { id } = req.params;
         let listingData = await listing.findById(id);

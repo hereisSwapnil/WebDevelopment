@@ -1,0 +1,24 @@
+<% layout('./layouts/boilerplate') -%>
+
+    <body>
+        <div class="new-add-section row col-8 mx-auto">
+            <h1>Login to Wanderlust</h1>
+            <form action="" method="post" novalidate class="needs-validation mt-3">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="username" name="username" required>
+                    <div class="invalid-feedback">
+                        Enter the username.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="password" name="password" required>
+                    <div class="invalid-feedback">
+                        Enter the password.
+                    </div>
+                </div>
+                <button type="submit" class="btn-add btn btn-dark">Login</button>
+            </form>
+        </div>
+    </body>
