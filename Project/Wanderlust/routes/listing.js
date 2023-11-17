@@ -2,34 +2,13 @@ const express = require("express");
 const router = express.Router();
 // exporting wrapAsync function
 const wrapAsync = require("../utils/wrapAsync");
-// JOI Validation
-const { listingSchema } = require("../schema");
-// exporting expressError class
-const expressError = require("../utils/expressError");
 
 // inporting models
+const review = require("../models/review");
 const listing = require("../models/listing");
 
-// isLoggedIn middleware
-const { isLoggedIn } = require('../middleware')
-
-// validateListing function
-const validateListing = (req, res, next) => {
-    const { title, description, image, price, location, country } = req.body;
-    let result = listingSchema.validate({
-        title,
-        description,
-        image,
-        price,
-        location,
-        country,
-    });
-    if (result.error) {
-        throw new expressError(400, result.error);
-    } else {
-        next();
-    }
-};
+// middleware
+const { isLoggedIn, isOwner, validateListing } = require('../middleware')
 
 // GET: listings route
 router.get(
@@ -49,7 +28,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 
 // GET: listings edit specific route
 router.get(
-    "/:id/edit", isLoggedIn,
+    "/:id/edit", isLoggedIn, isOwner,
     wrapAsync(async (req, res) => {
         let listingData = await listing.findById(req.params.id);
         if (!listingData) {
@@ -64,9 +43,14 @@ router.get(
 
 // GET: listings get specific route
 router.get(
-    "/:id", isLoggedIn,
+    "/:id",
+    // isLoggedIn,
     wrapAsync(async (req, res) => {
-        let listingData = await listing.findById(req.params.id).populate("reviews").populate("owner");
+        let listingData = await listing.findById(req.params.id).populate({
+            path: "reviews", populate: {
+                path: "author"
+            }
+        }).populate("owner");
         console.log("Listing data by id fetched successfully");
         if (!listingData) {
             req.flash("error", "The listing you requested does not exit!")
@@ -100,7 +84,7 @@ router.post(
 
 // PUT: edit specific listings
 router.put(
-    "/:id", isLoggedIn,
+    "/:id", isLoggedIn, isOwner,
     validateListing,
     wrapAsync(async (req, res) => {
         let { title, description, image, price, location, country } = req.body;
@@ -120,7 +104,7 @@ router.put(
 
 // DELETE: delete specific listings
 router.delete(
-    "/:id", isLoggedIn,
+    "/:id", isLoggedIn, isOwner,
     wrapAsync(async (req, res) => {
         const { id } = req.params;
         let listingData = await listing.findById(id);
