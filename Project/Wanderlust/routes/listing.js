@@ -37,7 +37,6 @@ router.get(
     wrapAsync(async (req, res) => {
         let allListingData = await listing.find();
         console.log("Listing data fetched successfully");
-        console.log("isLoggedIn: " + req.isAuthenticated());
         // console.log(allListingData);
         res.render("./listings/index", { allListings: allListingData });
     })
@@ -67,7 +66,7 @@ router.get(
 router.get(
     "/:id", isLoggedIn,
     wrapAsync(async (req, res) => {
-        let listingData = await listing.findById(req.params.id).populate("reviews");
+        let listingData = await listing.findById(req.params.id).populate("reviews").populate("owner");
         console.log("Listing data by id fetched successfully");
         if (!listingData) {
             req.flash("error", "The listing you requested does not exit!")
@@ -91,6 +90,7 @@ router.post(
             location,
             country,
         });
+        newListing.owner = req.user._id;
         await newListing.save();
         console.log("New listing data saved successfully");
         req.flash("success", "New Listing added")

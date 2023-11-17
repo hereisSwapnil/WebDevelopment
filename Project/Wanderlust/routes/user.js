@@ -14,6 +14,9 @@ router.get("/login", (req, res, next) => {
     res.render("listings/login.ejs")
 })
 
+// importing middleware
+const { saveRedirectUrl } = require('../middleware');
+
 // GET: signup route
 router.get("/signup", (req, res, next) => {
     res.render("listings/signup.ejs")
@@ -41,11 +44,12 @@ router.post("/signup", wrapAsync(async (req, res) => {
 }))
 
 // POST: login functions
-router.post('/login',
+router.post('/login', saveRedirectUrl,
     passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
     async (req, res) => {
         req.flash("success", "Welcome back to Wanderlust! You are logged in!")
-        res.redirect("/listings")
+        let urlToBeRedirected = res.locals.redirectUrl || "/listings"
+        res.redirect(urlToBeRedirected)
     });
 
 // POST: logout functions

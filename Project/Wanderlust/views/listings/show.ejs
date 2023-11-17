@@ -2,11 +2,14 @@
 
     <body>
         <div class="card mt-5">
+            <h5 class="card-title mb-1">
+                <%= listingData.title %>
+            </h5>
+            <p class="mb-3">
+                Created by <%= listingData.owner.username %>
+            </p>
             <img src="<%= listingData.image %>" class="card-img-top" alt="..." />
             <div class="card-body mb-3">
-                <h5 class="card-title">
-                    <%= listingData.title %>
-                </h5>
                 <p class="card-text">
                     <%= listingData.description %>
                 </p>
@@ -23,20 +26,22 @@
                     <%= listingData.country %>
                 </p>
             </div>
-            <div class="controls ml-5">
-                <form action="/listings/<%= listingData.id %>/edit" method="get">
-                    <button type="submit" class="btn-edit btn-add btn btn-dark px-4">
-                        Edit
-                    </button>
-                </form>
-                <form action="/listings/<%= listingData.id %>?_method=DELETE" method="post">
-                    <button type="submit" class="btn-delete btn-add btn btn-dark px-4">
-                        Delete
-                    </button>
-                </form>
-            </div>
+            <% if (listingData.owner._id.equals(currUser._id)) { %>
+                <div class="controls ml-5 mb-5">
+                    <form action="/listings/<%= listingData.id %>/edit" method="get">
+                        <button type="submit" class="btn-edit btn-add btn btn-dark px-4">
+                            Edit
+                        </button>
+                    </form>
+                    <form action="/listings/<%= listingData.id %>?_method=DELETE" method="post">
+                        <button type="submit" class="btn-delete btn-add btn btn-dark px-4">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+                <% } %>
         </div>
-        <hr class="my-5">
+        <hr class="mb-5">
         <div class="card" style="margin-left: 1rem;">
             <h2>Give a review</h2>
             <form action="/listings/<%= listingData.id %>/reviews" method="post" novalidate class="needs-validation">
