@@ -1,19 +1,22 @@
 // Importing required modules
+const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-const session = require('express-session')
-const flash = require('connect-flash');
-const passport = require('passport');
-const LocalStrategy = require('passport-local')
-const User = require('./models/user.js')
+const session = require("express-session");
+const flash = require("connect-flash");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
+
+dotenv.config();
 
 // importing router
-const listingsRouter = require('./routes/listing.js');
-const reviewsRouter = require('./routes/review.js')
-const usersRouter = require('./routes/user.js')
+const listingsRouter = require("./routes/listing.js");
+const reviewsRouter = require("./routes/review.js");
+const usersRouter = require("./routes/user.js");
 
 // exporting expressError class
 const expressError = require("./utils/expressError");
@@ -22,12 +25,18 @@ const expressError = require("./utils/expressError");
 const app = express();
 
 // creating a express session
-app.use(session({
-  secret: 'tejfwemoiwefodxixdiuqwjwioxjnwqcklmwqewioxqwnoexiqwmxenok',  // a secret string used to sign the session ID cookie
-  resave: false,  // don't save session if unmodified
-  saveUninitialized: false,  // don't create session until something stored
-  cookie: { httpOnly: true, maxAge: Date.now() + 7 * 24 * 60 * 60 * 1000, expires: 7 * 24 * 60 * 60 * 1000 }
-}))
+app.use(
+  session({
+    secret: "tejfwemoiwefodxixdiuqwjwioxjnwqcklmwqewioxqwnoexiqwmxenok", // a secret string used to sign the session ID cookie
+    resave: false, // don't save session if unmodified
+    saveUninitialized: false, // don't create session until something stored
+    cookie: {
+      httpOnly: true,
+      maxAge: Date.now() + 7 * 24 * 60 * 60 * 1000,
+      expires: 7 * 24 * 60 * 60 * 1000,
+    },
+  })
+);
 
 // using flash
 app.use(flash());
@@ -56,16 +65,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 app.use((req, res, next) => {
-  res.locals.success = req.flash("success")
-  res.locals.error = req.flash("error")
-  res.locals.currUser = req.user
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
   next();
-})
+});
 
 // Setting up routes
-app.use("/listings", listingsRouter)
-app.use("/listings/:id/reviews", reviewsRouter)
-app.use("/", usersRouter)
+app.use("/listings", listingsRouter);
+app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/", usersRouter);
 
 // Connecting MongoDB
 main()
@@ -74,7 +83,7 @@ main()
   })
   .catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+  await mongoose.connect(process.env.MONGO_URI);
 }
 
 // GET: Root path request
@@ -101,6 +110,7 @@ app.all("*", (req, res, next) => {
 app.use((err, req, res, next) => {
   let { status = 500, message = "Something went wrong" } = err;
   // res.status(status).send(message);
+  console.log(err);
   res.status(status).render("error", { message });
 });
 

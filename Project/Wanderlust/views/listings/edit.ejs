@@ -2,8 +2,8 @@
 
     <body>
         <div class="new-add-section row col-8 mx-auto">
-            <form action="/listings/<%= listingData.id %>?_method=PUT" method="post" novalidate
-                class="needs-validation">
+            <form action="/listings/<%= listingData.id %>?_method=PUT" method="post" novalidate class="needs-validation"
+                enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" placeholder="Private Island Retreat" name="title"
@@ -22,12 +22,11 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="text" class="form-control" placeholder="image url" name="image"
-                        value="<%= listingData.image %>" required>
-                    <div class="invalid-feedback">
-                        Enter enter image URL.
-                    </div>
+                    <img src="<%= originalImageUrl %>" alt="">
+                </div>
+                <div class="mb-3">
+                    <label for="listingImage" class="form-label">Image Upload</label>
+                    <input type="file" class="form-control" name="listingImage">
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>

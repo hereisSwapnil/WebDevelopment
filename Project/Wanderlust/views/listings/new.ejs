@@ -2,7 +2,7 @@
 
     <body>
         <div class="new-add-section row col-8 mx-auto">
-            <form action="/listings" method="post" novalidate class="needs-validation">
+            <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" placeholder="Private Island Retreat" name="title" required>
@@ -20,11 +20,8 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="text" class="form-control" placeholder="image url" name="image" required>
-                    <div class="invalid-feedback">
-                        Enter enter image URL.
-                    </div>
+                    <label for="listingImage" class="form-label">Image Upload</label>
+                    <input type="file" class="form-control" name="listingImage" required>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>

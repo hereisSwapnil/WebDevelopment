@@ -8,7 +8,7 @@
             <p class="mb-3">
                 Created by <%= listingData.owner.username %>
             </p>
-            <img src="<%= listingData.image %>" class="card-img-top" alt="..." />
+            <img src="<%= listingData.image.url %>" class="card-img-top" alt="..." />
             <div class="card-body mb-3">
                 <p class="card-text">
                     <%= listingData.description %>
@@ -49,11 +49,21 @@
                     class="needs-validation">
                     <br>
                     <div class="form-group">
-                        <label for="formControlRange">Rating</label>
-                        <br>
-                        <input type="range" class="form-control-range" value="1" id="formControlRange" min="1" max="5"
-                            name="rating" oninput="this.nextElementSibling.value = this.value" />
-                        <output>1</output><span>🌟</span>
+                        <fieldset class="starability-basic">
+                            <legend>First rating:</legend>
+                            <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                                aria-label="No rating." />
+                            <input type="radio" id="second-rate1" name="rating" value="1" />
+                            <label for="second-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="second-rate2" name="rating" value="2" />
+                            <label for="second-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="second-rate3" name="rating" value="3" />
+                            <label for="second-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="second-rate4" name="rating" value="4" />
+                            <label for="second-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="second-rate5" name="rating" value="5" />
+                            <label for="second-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
                     </div>
                     <br>
                     <div class="form-group">
@@ -87,8 +97,9 @@
                                                 <h5 class="mt-0" style="line-height: 32px;">
                                                     <%= review.author.username %>
                                                 </h5>
-                                                <p style="line-height: 32px;">
-                                                    <%= review.rating %> 🌟
+                                                <p class="starability-result" data-rating="<%= review.rating %>"
+                                                    style="line-height: 32px;">
+                                                    Rated: <%= review.rating %> stars
                                                 </p>
                                             </div>
                                             <div class="media-body mx-2">
