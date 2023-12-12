@@ -79,3 +79,7 @@ footer {
   background-color: #0d1321;
   border: none !important;
 }
+
+#map {
+  height: 180px;
+}
