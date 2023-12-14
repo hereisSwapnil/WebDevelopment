@@ -137,6 +137,27 @@
                                     </li>
                                     <% }) %>
                             </ul>
-                            <div id="map"></div>
+                            <div id="map" class="my-0 mb-5"></div>
                         </div>
+                        <script>
+                            console.log('<%= listingData.geometry.coordinates[0] %>', '<%= listingData.geometry.coordinates[1] %>');
+                            var redIcon = new L.Icon({
+                                iconUrl: 'https://i.ibb.co/SXQxJ1B/marker-icon-2x-red.png',
+                                shadowUrl: 'https://i.ibb.co/PxNdxqW/marker-shadow.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            });
+                            var map = L.map('map').setView(['<%= listingData.geometry.coordinates[0] %>', '<%= listingData.geometry.coordinates[1] %>'], 13);
+                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 19,
+                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                            }).addTo(map);
+                            var marker = L.marker(['<%= listingData.geometry.coordinates[0] %>', '<%= listingData.geometry.coordinates[1] %>'], { icon: redIcon }).addTo(map);
+                            var tooltip = L.tooltip(['<%= listingData.geometry.coordinates[0] %> ', ' <%= listingData.geometry.coordinates[1] %> '], { content: '<%= listingData.location %>' })
+                                .addTo(map);
+                        </script>
     </body>
+
+    <!-- c5ea1cc1b9b84c009c85e1dee1f01162 -->

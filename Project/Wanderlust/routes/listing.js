@@ -35,6 +35,7 @@ router.post(
   "/",
   isLoggedIn,
   upload.single("listingImage"),
+  validateListing,
   wrapAsync(addNewListing)
 );
 

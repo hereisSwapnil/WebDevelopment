@@ -1,7 +1,66 @@
 <% layout('./layouts/boilerplate') -%>
-    <!-- row-cols-1 row-cols-md-2 g-4 -->
 
     <body>
+        <div class="head-options">
+            <div id="filters">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trending</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    <p>Rooms</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>Iconic Cities</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain"></i></div>
+                    <p>Mountains</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-person-swimming"></i></div>
+                    <p>Amazing Pools</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tents"></i></div>
+                    <p>Camping</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-cow"></i></div>
+                    <p>Farms</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-snowflake"></i></div>
+                    <p>Arctic</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fas fa-ship"></i></div>
+                    <p>Boats</p>
+                    <hr>
+                </div>
+                <div class="filter">
+                    <div><i class="fas fa-igloo"></i></div>
+                    <p>Domes</p>
+                    <hr>
+                </div>
+            </div>
+            <div class="tax-info">
+                <div class="form-check-reverse form-switch tax-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Display total after taxes</label>
+                </div>
+            </div>
+        </div>
         <div class="listing-section row row-cols-lg-3 row-cols-md-2">
             <% for( let listing of allListings ) { %>
                 <a href="/listings/<%= listing.id %>" class="a-cards">
@@ -15,11 +74,27 @@
                                 <p class="card-text">
                                     <%= listing.description %>
                                 </p>
-                                <p class="card-text">₹<%= listing.price %>/day</p>
+                                <p class="card-text">₹<%= listing.price %>/day<span
+                                            class="gst-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+18%
+                                            GST</span></p>
                             </div>
                         </div>
                     </div>
                 </a>
                 <% } %>
         </div>
+        <script>
+            let taxSwitch = document.getElementsByClassName("tax-switch");
+            taxSwitch[0].addEventListener("click", () => {
+                let taxP = document.getElementsByClassName("gst-text");
+                console.log(taxSwitch);
+                for (let i of taxP) {
+                    if (i.style.display != "inline") {
+                        i.style.display = "inline";
+                    } else {
+                        i.style.display = "none";
+                    }
+                }
+            })
+        </script>
     </body>

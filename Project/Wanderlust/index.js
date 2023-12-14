@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -27,7 +28,7 @@ const app = express();
 // creating a express session
 app.use(
   session({
-    secret: "tejfwemoiwefodxixdiuqwjwioxjnwqcklmwqewioxqwnoexiqwmxenok", // a secret string used to sign the session ID cookie
+    secret: process.env.SECRET, // a secret string used to sign the session ID cookie
     resave: false, // don't save session if unmodified
     saveUninitialized: false, // don't create session until something stored
     cookie: {
@@ -35,6 +36,9 @@ app.use(
       maxAge: Date.now() + 7 * 24 * 60 * 60 * 1000,
       expires: 7 * 24 * 60 * 60 * 1000,
     },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
   })
 );
 

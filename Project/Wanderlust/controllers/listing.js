@@ -2,6 +2,7 @@ const listing = require("../models/listing");
 const review = require("../models/review");
 // const cloudinary = require("../utils/cloudnary");
 const cloudinary = require("cloudinary").v2;
+const opencage = require("opencage-api-client");
 
 module.exports.renderListing = async (req, res) => {
   let allListingData = await listing.find();
@@ -22,7 +23,7 @@ module.exports.editListing = async (req, res) => {
 };
 
 module.exports.renderAddListing = (req, res) => {
-  res.render("./listings/new");
+  res.render("./listings/new.ejs");
 };
 
 module.exports.renderSpecificListing = async (req, res) => {
@@ -59,9 +60,21 @@ module.exports.addNewListing = async (req, res, next) => {
     country,
   });
   newListing.owner = req.user._id;
-  await newListing.save();
-  console.log("New listing data saved successfully");
-  req.flash("success", "New Listing added");
+  let lat = 0;
+  let lng = 0;
+  opencage.geocode({ q: newListing.location }).then(async (data) => {
+    if (data.status.code === 200 && data.results.length > 0) {
+      const place = data.results[0];
+      lat = place.geometry.lat;
+      lng = place.geometry.lng;
+      newListing.geometry.type = "Point";
+      newListing.geometry.coordinates = [lat, lng];
+      await newListing.save();
+      console.log("New listing data saved successfully");
+      req.flash("success", "New Listing added");
+    }
+    req.flash("error", "Location seems to be incorrect");
+  });
   res.redirect("/listings");
 };
 
