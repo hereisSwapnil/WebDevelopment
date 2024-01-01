@@ -1,9 +1,6 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
 import generateTicket from "./generateTicket.helper";
-import { useEffect } from "react";
 
 function App() {
   const length = 3;
@@ -13,7 +10,6 @@ function App() {
     setWinner(false);
     let a = generateTicket(length);
     setTicket(a);
-    console.log(a);
   }, []);
 
   useEffect(() => {
